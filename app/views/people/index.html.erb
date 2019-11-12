@@ -1,0 +1,30 @@
+<div>
+  <div>
+    <div>
+      <h3>Import CSV Data</h3>
+      <%= form_tag import_people_path, multipart: true do %>
+          <%= file_field_tag :file, id: "choose-file" %>
+          <%= submit_tag "Import CSV", id: "import-submit" %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h3>Search</h3>
+      <%= form_tag people_path, method: 'get', id: "people_search" do %>
+        <p>
+          <%= text_field_tag :search, params[:search], placeholder: "", id: "search-input" %>
+          <%= submit_tag "Search", name: nil, id: "search-submit" %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  </div>  
+<div>
+  <div>
+    <div>
+      <h3>Imported Data</h3>
+      <div id="people"><%= render 'people' %></div>
+    </div>
+  </div>
+</div>

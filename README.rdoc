@@ -1,0 +1,20 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+* Ruby version: 2.4.4
+
+* Rails version: 4.2.11
+
+* Server start: rails s
+
+* Database creation: create db csv_importer_development;
+
+* Migration: rake db:migrate
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

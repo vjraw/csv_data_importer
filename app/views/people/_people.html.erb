@@ -1,0 +1,30 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<%= paginate @people %>
+<% if @people.count > 0 %>
+<table>
+  <tr>
+    <th><%= sortable "first_name", "First Name" %> </th>
+    <th><%= sortable "last_name", "Last Name" %> </th>
+    <th><%= sortable "species", "Species" %></th>
+    <th><%= sortable "gender", "Gender" %></th>
+    <th><%= sortable "weapon", "Weapon" %></th>
+    <th><%= sortable "vehicle", "Vehicle" %></th>
+    <th><%= sortable "location", "Location" %></th>
+    <th><%= sortable "affiliation", "Affiliation" %></th>
+  </tr>
+<% end %>
+  <% @people.each do |person|%>
+    <tr>
+      <td><%= person.first_name.titleize %></td>
+      <td><%= person.last_name.try(:titleize) %></td>
+      <td><%= person.species %></td>
+      <td><%= person.gender %></td>
+      <td><%= person.weapon %></td>
+      <td><%= person.vehicle %></td>
+      <td><%= person.locations.collect(&:name).join(', ').try(:titleize) %></td>
+      <td><%= person.affiliations.collect(&:name).join(', ').try(:titleize) %></td>
+    </tr>
+    <%end%>
+</table>
